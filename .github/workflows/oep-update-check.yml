@@ -2,6 +2,9 @@ name: Check for ANYK OEP plugin update
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - new-gen
   schedule:
   - cron: '0 0 * * *'
 

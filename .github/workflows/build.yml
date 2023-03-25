@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - master
+      - new-gen
   pull_request:
     branches:
       - master
