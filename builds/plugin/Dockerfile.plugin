@@ -1,4 +1,6 @@
-FROM anyk:base-ubuntu-${DESKTOP}
+ARG DESKTOP
+
+FROM anyk:base-ubuntu-$DESKTOP
 
 ARG PLUGIN_URL
 

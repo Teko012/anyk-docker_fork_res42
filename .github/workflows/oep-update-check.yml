@@ -12,11 +12,9 @@ jobs:
   check:
     strategy:
       matrix:
-        os: ["ubuntu-latest"]
         target: ["OEP_igenylolap_eu_kartyahoz","OEP_egt_tagallam"]
 
-    runs-on: ${{ matrix.os }}
-    steps:
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3

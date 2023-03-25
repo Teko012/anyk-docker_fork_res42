@@ -14,11 +14,10 @@ jobs:
   build-base:
     strategy:
       matrix:
-        os: ["ubuntu-latest"]
         desktop: ["kde", "mate", "xfce"]
         base: ["base"]
 
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -40,11 +39,10 @@ jobs:
     needs: build-base
     strategy:
       matrix:
-        os: [ubuntu-latest]
         desktop: ["kde", "mate", "xfce"]
         plugin: ["NAV_19HIPA", "NAV_20HIPA", "NAV_21HIPA", "NAV_22HIPAK", "NAV_IGAZOL", "OEP_egt_tagallam", "OEP_igenylolap_eu_kartyahoz"]
 
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
