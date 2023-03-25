@@ -64,7 +64,7 @@ jobs:
           commit-message: Update ANYK ${{ matrix.target }} plugin version
           committer: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
           author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-          base: master
+          base: new-gen
           branch: bot/update-anyk-${{ matrix.target }}-version
           delete-branch: true
           title: Update ANYK ${{ matrix.target }} plugin version
