@@ -12,10 +12,10 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          ref: 'master'
+          ref: 'new-gen'
 
       - name: Download ANYK repository index
-        run: curl -L https://nav.gov.hu/abev/abev_new -o anyk.xml
+        run: curl -L https://nav.gov.hu/api/declarationForms/anyk -o anyk.xml
 
       - name: Get latest ANYK version number
         id: latestanykversion
@@ -26,7 +26,7 @@ jobs:
 
       - name: Get current local version number
         id: localversion
-        run: echo "version=$(head -n 1 anyk/files/anyk-version.txt)" >> $GITHUB_OUTPUT
+        run: echo "version=$(head -n 1 builds/base.version)" >> $GITHUB_OUTPUT
         shell: bash
 
       - name: Update check time
@@ -47,7 +47,7 @@ jobs:
 
       - name: Update version file
         if: ${{steps.latestanykversion.outputs.info > steps.localversion.outputs.version}}
-        run: echo ${{ steps.latestanykversion.outputs.info }} > 'anyk/files/anyk-version.txt'
+        run: echo ${{ steps.latestanykversion.outputs.info }} > 'builds/base.version'
         shell: bash
 
       - name: Create pull request
@@ -62,4 +62,4 @@ jobs:
           delete-branch: true
           title: Update ANYK version
           body: Update ANYK to the latest version.
-          add-paths: anyk/files/anyk-version.txt
+          add-paths: builds/base.version
